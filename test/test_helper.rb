@@ -17,9 +17,14 @@
 
 if ENV["COVERAGE"]
   require 'simplecov'
-  require File.expand_path(File.dirname(__FILE__) + "/coverage/html_formatter")
-  SimpleCov.formatter = Redmine::Coverage::HtmlFormatter
-  SimpleCov.start 'rails'
+  require 'simplecov-rcov'
+  # require 'metric_fu/metrics/rcov/simplecov_formatter'
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::RcovFormatter,
+    SimpleCov::Formatter::HTMLFormatter
+    # SimpleCov::Formatter::MetricFu
+    ]
+  SimpleCov.start
 end
 
 ENV["RAILS_ENV"] = "test"
