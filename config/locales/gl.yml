@@ -366,10 +366,6 @@ gl:
   label_chronological_order: En orde cronolóxica
   label_closed_issues: pechada
   label_closed_issues_plural: pechadas
-  label_x_open_issues_abbr_on_total:
-    zero:  0 open / %{total}
-    one:   1 open / %{total}
-    other: "%{count} open / %{total}"
   label_x_open_issues_abbr:
     zero:  0 open
     one:   1 open
@@ -1176,7 +1172,7 @@ gl:
   label_fields_separator: Field separator
   label_fields_wrapper: Field wrapper
   label_encoding: Encoding
-  label_coma_char: Coma
+  label_comma_char: Comma
   label_semi_colon_char: Semi colon
   label_quote_char: Quote
   label_double_quote_char: Double quote
@@ -1187,3 +1183,5 @@ gl:
   field_total_estimated_hours: Total estimated time
   label_api: API
   label_total_plural: Totals
+  label_assigned_issues: Assigned issues
+  label_field_format_enumeration: Key/value list

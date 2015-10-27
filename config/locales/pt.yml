@@ -437,10 +437,6 @@ pt:
   label_open_issues_plural: abertos
   label_closed_issues: fechado
   label_closed_issues_plural: fechados
-  label_x_open_issues_abbr_on_total:
-    zero:  0 abertas / %{total}
-    one:   1 aberta / %{total}
-    other: "%{count} abertas / %{total}"
   label_x_open_issues_abbr:
     zero:  0 abertas
     one:   1 aberta
@@ -1170,7 +1166,7 @@ pt:
   label_fields_separator: Separador de campos
   label_fields_wrapper: Field wrapper
   label_encoding: Codificação
-  label_coma_char: Vírgula
+  label_comma_char: Vírgula
   label_semi_colon_char: Ponto e vírgula
   label_quote_char: Aspas
   label_double_quote_char: Aspas duplas
@@ -1181,3 +1177,5 @@ pt:
   field_total_estimated_hours: Total de tempo estimado
   label_api: API
   label_total_plural: Totals
+  label_assigned_issues: Assigned issues
+  label_field_format_enumeration: Key/value list

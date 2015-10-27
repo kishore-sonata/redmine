@@ -582,10 +582,6 @@ ja:
   label_open_issues_plural: 未完了
   label_closed_issues: 完了
   label_closed_issues_plural: 完了
-  label_x_open_issues_abbr_on_total:
-    zero:  0件未完了 / 全%{total}件
-    one:   1件未完了 / 全%{total}件
-    other: "%{count}件未完了 / 全%{total}件"
   label_x_open_issues_abbr:
     zero:  0件未完了
     one:   1件未完了
@@ -1181,7 +1177,7 @@ ja:
   label_fields_separator: 区切り文字
   label_fields_wrapper: 文字列の引用符
   label_encoding: エンコーディング
-  label_coma_char: コンマ
+  label_comma_char: コンマ
   label_semi_colon_char: セミコロン
   label_quote_char: シングルクォート
   label_double_quote_char: ダブルクォート
@@ -1192,3 +1188,5 @@ ja:
   field_total_estimated_hours: 合計予定工数
   label_api: API
   label_total_plural: Totals
+  label_assigned_issues: Assigned issues
+  label_field_format_enumeration: Key/value list

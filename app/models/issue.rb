@@ -95,6 +95,13 @@ class Issue < ActiveRecord::Base
     ids = [versions].flatten.compact.map {|v| v.is_a?(Version) ? v.id : v}
     ids.any? ? where(:fixed_version_id => ids) : where('1=0')
   }
+  scope :assigned_to, lambda {|arg|
+    arg = Array(arg).uniq
+    ids = arg.map {|p| p.is_a?(Principal) ? p.id : p}
+    ids += arg.select {|p| p.is_a?(User)}.map(&:group_ids).flatten.uniq
+    ids.compact!
+    ids.any? ? where(:assigned_to_id => ids) : none
+  }
 
   before_validation :clear_disabled_fields
   before_create :default_assign
@@ -454,6 +461,11 @@ class Issue < ActiveRecord::Base
       if allowed_target_projects(user).where(:id => p.to_i).exists?
         self.project_id = p
       end
+
+      if project_id_changed? && attrs['category_id'].to_s == category_id_was.to_s
+        # Discard submitted category on previous project
+        attrs.delete('category_id')
+      end
     end
 
     if (t = attrs.delete('tracker_id')) && safe_attribute?('tracker_id')
@@ -665,6 +677,8 @@ class Issue < ActiveRecord::Base
         end
       else
         if respond_to?(attribute) && send(attribute).blank? && !disabled_core_fields.include?(attribute)
+          next if attribute == 'category_id' && project.try(:issue_categories).blank?
+          next if attribute == 'fixed_version_id' && assignable_versions.blank?
           errors.add attribute, :blank
         end
       end

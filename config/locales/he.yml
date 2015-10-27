@@ -546,10 +546,6 @@ he:
   label_open_issues_plural: פתוחים
   label_closed_issues: סגור
   label_closed_issues_plural: סגורים
-  label_x_open_issues_abbr_on_total:
-    zero:  0 פתוחים / %{total}
-    one:   1 פתוח / %{total}
-    other: "%{count} פתוחים / %{total}"
   label_x_open_issues_abbr:
     zero:  0 פתוחים
     one:   1 פתוח
@@ -1173,7 +1169,7 @@ he:
   label_fields_separator: Field separator
   label_fields_wrapper: Field wrapper
   label_encoding: Encoding
-  label_coma_char: Coma
+  label_comma_char: Comma
   label_semi_colon_char: Semi colon
   label_quote_char: Quote
   label_double_quote_char: Double quote
@@ -1184,3 +1180,5 @@ he:
   field_total_estimated_hours: Total estimated time
   label_api: API
   label_total_plural: Totals
+  label_assigned_issues: Assigned issues
+  label_field_format_enumeration: Key/value list

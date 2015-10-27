@@ -572,6 +572,7 @@ en:
   label_logout: Sign out
   label_help: Help
   label_reported_issues: Reported issues
+  label_assigned_issues: Assigned issues
   label_assigned_to_me_issues: Issues assigned to me
   label_last_login: Last connection
   label_registered_on: Registered on
@@ -629,10 +630,6 @@ en:
   label_open_issues_plural: open
   label_closed_issues: closed
   label_closed_issues_plural: closed
-  label_x_open_issues_abbr_on_total:
-    zero:  0 open / %{total}
-    one:   1 open / %{total}
-    other: "%{count} open / %{total}"
   label_x_open_issues_abbr:
     zero:  0 open
     one:   1 open
@@ -965,7 +962,7 @@ en:
   label_fields_separator: Field separator
   label_fields_wrapper: Field wrapper
   label_encoding: Encoding
-  label_coma_char: Coma
+  label_comma_char: Comma
   label_semi_colon_char: Semi colon
   label_quote_char: Quote
   label_double_quote_char: Double quote
@@ -973,6 +970,7 @@ en:
   label_file_content_preview: File content preview
   label_create_missing_values: Create missing values
   label_api: API
+  label_field_format_enumeration: Key/value list
 
   button_login: Login
   button_submit: Submit
@@ -1091,7 +1089,7 @@ en:
   text_assign_time_entries_to_project: Assign reported hours to the project
   text_reassign_time_entries: 'Reassign reported hours to this issue:'
   text_user_wrote: "%{value} wrote:"
-  text_enumeration_destroy_question: "%{count} objects are assigned to this value."
+  text_enumeration_destroy_question: "%{count} objects are assigned to the value “%{name}”."
   text_enumeration_category_reassign_to: 'Reassign them to this value:'
   text_email_delivery_not_configured: "Email delivery is not configured, and notifications are disabled.\nConfigure your SMTP server in config/configuration.yml and restart the application to enable them."
   text_repository_usernames_mapping: "Select or update the Redmine user mapped to each username found in the repository log.\nUsers with the same Redmine and repository username or email are automatically mapped."

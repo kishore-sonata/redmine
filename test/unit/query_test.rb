@@ -948,6 +948,28 @@ class QueryTest < ActiveSupport::TestCase
     assert_nil q.statement
   end
 
+  def test_available_filters_as_json_should_include_missing_assigned_to_id_values
+    user = User.generate!
+    with_current_user User.find(1) do
+      q = IssueQuery.new
+      q.filters = {"assigned_to_id" => {:operator => '=', :values => user.id.to_s}}
+
+      filters = q.available_filters_as_json
+      assert_include [user.name, user.id.to_s], filters['assigned_to_id']['values']
+    end
+  end
+
+  def test_available_filters_as_json_should_include_missing_author_id_values
+    user = User.generate!
+    with_current_user User.find(1) do
+      q = IssueQuery.new
+      q.filters = {"author_id" => {:operator => '=', :values => user.id.to_s}}
+
+      filters = q.available_filters_as_json
+      assert_include [user.name, user.id.to_s], filters['author_id']['values']
+    end
+  end
+
   def test_default_columns
     q = IssueQuery.new
     assert q.columns.any?
@@ -1050,7 +1072,7 @@ class QueryTest < ActiveSupport::TestCase
   end
 
   def test_sortable_columns_should_sort_assignees_according_to_user_format_setting
-    with_settings :user_format => 'lastname_coma_firstname' do
+    with_settings :user_format => 'lastname_comma_firstname' do
       q = IssueQuery.new
       assert q.sortable_columns.has_key?('assigned_to')
       assert_equal %w(users.lastname users.firstname users.id), q.sortable_columns['assigned_to']
@@ -1058,7 +1080,7 @@ class QueryTest < ActiveSupport::TestCase
   end
 
   def test_sortable_columns_should_sort_authors_according_to_user_format_setting
-    with_settings :user_format => 'lastname_coma_firstname' do
+    with_settings :user_format => 'lastname_comma_firstname' do
       q = IssueQuery.new
       assert q.sortable_columns.has_key?('author')
       assert_equal %w(authors.lastname authors.firstname authors.id), q.sortable_columns['author']

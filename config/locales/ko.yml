@@ -545,10 +545,6 @@ ko:
   label_open_issues_plural: 진행중
   label_closed_issues: 완료됨
   label_closed_issues_plural: 완료됨
-  label_x_open_issues_abbr_on_total:
-    zero:  "총 %{total} 건 모두 완료"
-    one:   "한 건 진행 중 / 총 %{total} 건 중 "
-    other: "%{count} 건 진행 중 / 총 %{total} 건"
   label_x_open_issues_abbr:
     zero:  모두 완료
     one:   한 건 진행 중
@@ -1212,7 +1208,7 @@ ko:
   label_fields_separator: Field separator
   label_fields_wrapper: Field wrapper
   label_encoding: Encoding
-  label_coma_char: Coma
+  label_comma_char: Comma
   label_semi_colon_char: Semi colon
   label_quote_char: Quote
   label_double_quote_char: Double quote
@@ -1223,3 +1219,5 @@ ko:
   field_total_estimated_hours: Total estimated time
   label_api: API
   label_total_plural: Totals
+  label_assigned_issues: Assigned issues
+  label_field_format_enumeration: Key/value list

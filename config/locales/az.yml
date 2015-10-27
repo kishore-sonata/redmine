@@ -723,12 +723,6 @@ az:
     few:   "%{count} açıqdır"
     many:  "%{count} açıqdır"
     other: "%{count} açıqdır"
-  label_x_open_issues_abbr_on_total:
-    zero:  "0 açıqdır / %{total}"
-    one:   "1 açıqdır / %{total}"
-    few:   "%{count} açıqdır / %{total}"
-    many:  "%{count} açıqdır / %{total}"
-    other: "%{count} açıqdır / %{total}"
   label_x_projects:
     zero:  "layihələr yoxdur"
     one:   "1 layihə"
@@ -1265,7 +1259,7 @@ az:
   label_fields_separator: Field separator
   label_fields_wrapper: Field wrapper
   label_encoding: Encoding
-  label_coma_char: Coma
+  label_comma_char: Comma
   label_semi_colon_char: Semi colon
   label_quote_char: Quote
   label_double_quote_char: Double quote
@@ -1276,3 +1270,5 @@ az:
   field_total_estimated_hours: Total estimated time
   label_api: API
   label_total_plural: Totals
+  label_assigned_issues: Assigned issues
+  label_field_format_enumeration: Key/value list
