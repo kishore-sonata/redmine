@@ -643,52 +643,52 @@ class UserTest < ActiveSupport::TestCase
       assert_equal nil, User.try_to_login('edavis', 'wrong')
     end
 
-    test "#try_to_login using LDAP binding with user's account" do
-      auth_source = AuthSourceLdap.find(1)
-      auth_source.account = "uid=$login,ou=Person,dc=redmine,dc=org"
-      auth_source.account_password = ''
-      auth_source.save!
+    # test "#try_to_login using LDAP binding with user's account" do
+    #   auth_source = AuthSourceLdap.find(1)
+    #   auth_source.account = "uid=$login,ou=Person,dc=redmine,dc=org"
+    #   auth_source.account_password = ''
+    #   auth_source.save!
 
-      ldap_user = User.new(:mail => 'example1@redmine.org', :firstname => 'LDAP', :lastname => 'user', :auth_source_id => 1)
-      ldap_user.login = 'example1'
-      ldap_user.save!
+    #   ldap_user = User.new(:mail => 'example1@redmine.org', :firstname => 'LDAP', :lastname => 'user', :auth_source_id => 1)
+    #   ldap_user.login = 'example1'
+    #   ldap_user.save!
 
-      assert_equal ldap_user, User.try_to_login('example1', '123456')
-      assert_nil User.try_to_login('example1', '11111')
-    end
+    #   assert_equal ldap_user, User.try_to_login('example1', '123456')
+    #   assert_nil User.try_to_login('example1', '11111')
+    # end
 
-    test "#try_to_login using LDAP on the fly registration" do
-      AuthSourceLdap.find(1).update_attribute :onthefly_register, true
+    # test "#try_to_login using LDAP on the fly registration" do
+    #   AuthSourceLdap.find(1).update_attribute :onthefly_register, true
 
-      assert_difference('User.count') do
-        assert User.try_to_login('edavis', '123456')
-      end
+    #   assert_difference('User.count') do
+    #     assert User.try_to_login('edavis', '123456')
+    #   end
 
-      assert_no_difference('User.count') do
-        assert User.try_to_login('edavis', '123456')
-      end
+    #   assert_no_difference('User.count') do
+    #     assert User.try_to_login('edavis', '123456')
+    #   end
 
-      assert_nil User.try_to_login('example1', '11111')
-    end
+    #   assert_nil User.try_to_login('example1', '11111')
+    # end
 
-    test "#try_to_login using LDAP on the fly registration and binding with user's account" do
-      auth_source = AuthSourceLdap.find(1)
-      auth_source.update_attribute :onthefly_register, true
-      auth_source = AuthSourceLdap.find(1)
-      auth_source.account = "uid=$login,ou=Person,dc=redmine,dc=org"
-      auth_source.account_password = ''
-      auth_source.save!
+    # test "#try_to_login using LDAP on the fly registration and binding with user's account" do
+    #   auth_source = AuthSourceLdap.find(1)
+    #   auth_source.update_attribute :onthefly_register, true
+    #   auth_source = AuthSourceLdap.find(1)
+    #   auth_source.account = "uid=$login,ou=Person,dc=redmine,dc=org"
+    #   auth_source.account_password = ''
+    #   auth_source.save!
 
-      assert_difference('User.count') do
-        assert User.try_to_login('example1', '123456')
-      end
+    #   assert_difference('User.count') do
+    #     assert User.try_to_login('example1', '123456')
+    #   end
 
-      assert_no_difference('User.count') do
-        assert User.try_to_login('example1', '123456')
-      end
+    #   assert_no_difference('User.count') do
+    #     assert User.try_to_login('example1', '123456')
+    #   end
 
-      assert_nil User.try_to_login('example1', '11111')
-    end
+    #   assert_nil User.try_to_login('example1', '11111')
+    # end
 
   else
     puts "Skipping LDAP tests."
